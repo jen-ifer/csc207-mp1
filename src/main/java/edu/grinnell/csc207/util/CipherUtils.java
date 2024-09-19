@@ -3,12 +3,12 @@ package edu.grinnell.csc207.util;
 public class CipherUtils {
   private static int letter2int(char letter) {
     char x = letter;
-    int letToInt = x - 97; 
+    int letToInt = x - 'a'; 
     return letToInt; // STUB
   }
 
   private static char int2letter(int i) {
-    int letterconvert = i + 97;
+    int letterconvert = i + 'a';
     char intTolet = (char)(letterconvert);
     return intTolet; // STUB
   }
@@ -101,12 +101,7 @@ public class CipherUtils {
       }
     }
     for(int c=0; c<str1.length; c++){
-      if((int)decryptedVig[c] < 0){
-      decryptedVig[c] = int2letter((str1num[c] - vi[c])+26);
-      }
-      else{
-        decryptedVig[c] = int2letter((str1num[c] - vi[c])% 26);
-      }
+      decryptedVig[c] = int2letter(((str1num[c] - vi[c])+26)% 26);
       finalString.append(decryptedVig[c]);
     }
     return finalString.toString(); // STUB
