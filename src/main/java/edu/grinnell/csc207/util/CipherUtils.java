@@ -101,11 +101,11 @@ public class CipherUtils {
       }
     }
     for(int c=0; c<str1.length; c++){
-      decryptedVig[c] = int2letter((str1num[c] - vi[c])% 26);
       if((int)decryptedVig[c] < 0){
-        decryptedVig[c] = (char)(((int)decryptedVig[c])+26);
-
-        
+      decryptedVig[c] = int2letter((str1num[c] - vi[c])+26);
+      }
+      else{
+        decryptedVig[c] = int2letter((str1num[c] - vi[c])% 26);
       }
       finalString.append(decryptedVig[c]);
     }
