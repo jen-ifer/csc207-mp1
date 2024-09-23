@@ -4,6 +4,9 @@ What this code does: The following code encrypt and decrypts using The Caesar Ci
 Resources I used:
 Evening tutors: Boston helped me fix syntax
                 Office Hours with PM helped me understand java more and what I was supposed to be doing he also helped me with the testing file and my terminal was not working.
+                Audry from evening tutors told me how args indexing works
+                Matthew (my friend) helped me navigating java syntax with conditionals
+                geeksforgeeks showed me new syntax!
         
 
 

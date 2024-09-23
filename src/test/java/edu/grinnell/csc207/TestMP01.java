@@ -326,14 +326,24 @@ public class TestMP01 {
     assertEquals("hhhhhhhh",
       CipherUtils.vigenereEncrypt("abcdefgh", "hgfedcba"),
       "M: vigenereEncrypt with abcdefgh and hgfedcba");
+      assertEquals("pqozblxpdhprr",
+      CipherUtils.vigenereEncrypt("imdonetesting", "hello"),
+      "M: vigenereDecrypt with imdonetesting and hello");
   } // testVigenereEncrypt()
 
   /**
    * Ensure the vigenereDecrypt returns the right result for a variety
    * of strings (mostly ones I can figure out easily).
    */
+
+  
+
   @Test
   public void testVigenereDecrypt() {
+    assertEquals("imdonetesting",
+      CipherUtils.vigenereDecrypt("pqozblxpdhprr", "hello"),
+      "M: vigenereDecrypt with imdonetesting and hello");
+
     assertEquals("abcdefg",
       CipherUtils.vigenereDecrypt("abcdefg", "aaa"),
       "M: vigenereDecrypt with abcdefg and aaa");
