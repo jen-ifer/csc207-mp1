@@ -54,6 +54,13 @@ public class CipherUtils {
   }
 
   public static String vigenereEncrypt(String str, String key) {
+    for(int i=0; i< key.length(); i++){
+      if(Character.isUpperCase(key.charAt(i))){
+        System.err.print("Error:");
+        key = null;
+        return null;
+      }
+    }
     char[] str1 =str.toCharArray();
     char[] str2= key.toCharArray();
     int[] str1num;
@@ -81,6 +88,12 @@ public class CipherUtils {
   }
 
   public static String vigenereDecrypt(String str, String key) {
+    for(int i=0; i< key.length(); i++){
+      if(Character.isUpperCase(key.charAt(i))){
+        key = null;
+        System.err.print("Error:");
+        return null;
+      }}
     char[] str1 =str.toCharArray();
     char[] str2= key.toCharArray();
     int[] str1num;

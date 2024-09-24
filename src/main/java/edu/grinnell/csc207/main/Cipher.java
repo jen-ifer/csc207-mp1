@@ -47,8 +47,10 @@ public class Cipher {
     System.err.println("Error: Cipher doesn't accept arguments with white space");
       pen.close();
       return;
-
   }
+
+
+  
     if(caesar && encode){
       pen.println(CipherUtils.caesarEncrypt(word, caesarKey));
     }
@@ -58,12 +60,19 @@ public class Cipher {
     }
 
     if(vigenere && encode){
-      pen.println(CipherUtils.vigenereEncrypt(word, key));
+      String result;
+      result = CipherUtils.vigenereEncrypt(word, key);
+      if(result != null && !result.isEmpty()){
+        pen.println(result);
+      }
     }
 
     if(vigenere && decode){
-    
-      pen.println(CipherUtils.vigenereDecrypt(word, key));
+      String result;
+      result = CipherUtils.vigenereDecrypt(word, key);
+      if(result != null){
+        pen.println(result);
+      }
     }
   
   
