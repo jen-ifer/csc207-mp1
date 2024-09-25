@@ -1,16 +1,17 @@
 package edu.grinnell.csc207.util;
 
 /**
- * This is the cipher util java file
+ * This is the cipher util java file.
  */
 public class CipherUtils {
-  /**
-   * This is the cipher utils class.
-   */
   /**
    * @param letter
    * @return a letter converted to an int
    */
+   /**
+   * The number of lowercase letters.
+   */
+  private static final int NUM_LETTERS = 26;
   private static int letter2int(char letter) {
     char x = letter;
     int letToInt = x - 'a';
@@ -28,13 +29,11 @@ public class CipherUtils {
   } // int to letter
 
   /**
-   * 
    * @param str
    * @param letter
    * @return string for a caesar encrypted message
    */
   public static String caesarEncrypt(String str, char letter) {
-    int LEN_ALPHA = 26;
     letter -= 'a';
     char[] str2array = str.toCharArray();
     int[] arrayOfInts;
@@ -42,7 +41,7 @@ public class CipherUtils {
     arrayOfInts = new int[str2array.length];
     for (int i = 0; i < str.length(); i++) {
       arrayOfInts[i] = letter2int(str2array[i]);
-      arrayOfInts[i] = (arrayOfInts[i] + letter) % LEN_ALPHA;
+      arrayOfInts[i] = (arrayOfInts[i] + letter) % NUM_LETTERS;
       str2array[i] = int2letter(arrayOfInts[i]);
       finalString.append(str2array[i]);
     } //for
@@ -55,7 +54,6 @@ public class CipherUtils {
    * @return string for a caesar decrypted message
    */
   public static String caesarDecrypt(String str, char letter) {
-    int LEN_ALPHA = 26;
     char[] str2array = str.toCharArray();
     int[] arrayOfInts;
     letter -= 'a';
@@ -65,9 +63,9 @@ public class CipherUtils {
       arrayOfInts[i] = letter2int(str2array[i]);
       arrayOfInts[i] = (arrayOfInts[i] - letter);
       if (arrayOfInts[i] < 0) {
-        arrayOfInts[i] = arrayOfInts[i] + LEN_ALPHA;
+        arrayOfInts[i] = arrayOfInts[i] + NUM_LETTERS;
       } //if
-      arrayOfInts[i] = arrayOfInts[i] % LEN_ALPHA;
+      arrayOfInts[i] = arrayOfInts[i] % NUM_LETTERS;
       str2array[i] = int2letter(arrayOfInts[i]);
       finalString.append(str2array[i]);
     } //for
@@ -80,7 +78,6 @@ public class CipherUtils {
    * @return string for a vigenere encrypted message
    */
   public static String vigenereEncrypt(String str, String key) {
-    int LEN_ALPHA = 26;
     for (int i = 0; i < key.length(); i++) {
       if (Character.isUpperCase(key.charAt(i))) {
         System.err.print("Error:");
@@ -108,7 +105,7 @@ public class CipherUtils {
       } // else
     } // for
     for (int c = 0; c < str1.length; c++) {
-      encryptedVig[c] = int2letter((str1num[c] + vi[c]) % LEN_ALPHA);
+      encryptedVig[c] = int2letter((str1num[c] + vi[c]) % NUM_LETTERS);
       finalString.append(encryptedVig[c]);
     } // for
     return finalString.toString();
@@ -120,7 +117,6 @@ public class CipherUtils {
    * @return string decrypted vigenere message
    */
   public static String vigenereDecrypt(String str, String key) {
-    int LEN_ALPHA = 26;
     for (int i = 0; i < key.length(); i++) {
       if (Character.isUpperCase(key.charAt(i))) {
         key = null;
@@ -148,7 +144,7 @@ public class CipherUtils {
       } // else
     } // for
     for (int c = 0; c < str1.length; c++) {
-      decryptedVig[c] = int2letter(((str1num[c] - vi[c]) + LEN_ALPHA) % LEN_ALPHA);
+      decryptedVig[c] = int2letter(((str1num[c] - vi[c]) + NUM_LETTERS) % NUM_LETTERS);
       finalString.append(decryptedVig[c]);
     } // for
     return finalString.toString();

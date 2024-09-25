@@ -9,7 +9,6 @@ import edu.grinnell.csc207.util.CipherUtils;
 public class AllCaesar {
   /**
    * This is the all caesar class.
-   * 
    * @param args
    */
   public static void main(String[] args) {
@@ -25,13 +24,11 @@ public class AllCaesar {
       for (char ch = 'a'; ch <= 'z'; ch++) {
         pen.printf("n = %c: %s\n", ch, CipherUtils.caesarEncrypt(str, ch));
       } // for
-    } // If
-    else if (encoOrDeco.equals("decode")) {
+    } else if (encoOrDeco.equals("decode")) {
       for (char ch = 'a'; ch <= 'z'; ch++) {
         pen.printf("n = %c: %s\n", ch, CipherUtils.caesarDecrypt(str, ch));
       } // for
-    } // if
-    else {
+    } else {
       System.err.println(
           "Error: Invalid option: " + encoOrDeco + " Valid options are \"encode\" or \"decode\".");
     } // if the user doesn't input encode or decode when running the code then we will give the user

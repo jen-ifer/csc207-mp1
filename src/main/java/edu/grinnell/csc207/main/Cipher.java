@@ -8,12 +8,7 @@ import edu.grinnell.csc207.util.CipherUtils;
  */
 public class Cipher {
   /**
-   * This is the cipher class.
-   */
-
-  /**
-   * This is the all caesar class.
-   * 
+   * This is the all cipher class.
    * @param args
    */
   public static void main(String[] args) {
@@ -33,30 +28,18 @@ public class Cipher {
     for (int i = 0; i < args.length; i++) {
       if (args[i].equals("-caesar")) {
         caesar = true;
-      } // this checks the index i it checks if the string is caesar and make caesar true bc its
-        // true that this string is in the args[]
-      else if (args[i].equals("-vigenere")) {
+      } else if (args[i].equals("-vigenere")) {
         vigenere = true;
-      } // this checks the index i it checks if the string is vigenere and make vigenere true bc its
-        // true that this string is in the args[]
-      else if (args[i].equals("-encode")) {
+      } else if (args[i].equals("-encode")) {
         encode = true;
-      } // this checks the index i it checks if the string is encode and make encode true bc its
-        // true that this string is in the args[]
-      else if (args[i].equals("-decode")) {
+      } else if (args[i].equals("-decode")) {
         decode = true;
-      } // this checks the index i it checks if the string is decode and make decode true bc its
-        // true that this string is in the args[]
-      else if (word == null) {
+      } else if (word == null) {
         word = args[i];
-      } // this is to check if the variable word is empty because if it is I want the first word i
-        // get form my args to go here
-      else {
+      } else {
         if (1 == args[i].length()) {
           caesarKey = args[i].charAt(0);
-        } // This just checks the length of the second string.If the length = 1 then the second
-          // sting is for the ceasar cipher if its longer for vinegere
-        else {
+        } else {
           key = args[i];
         } // if
       } // if
